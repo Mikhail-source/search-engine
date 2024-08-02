@@ -2,10 +2,10 @@
 #include "converter_json.h"
 
 int main(int argc, char *argv[]){
-    InvertedIndex invert;
-    ConverterJSON convert;
+    ConverterJSON converter;
+    InvertedIndex inverter;
 
-    invert.UpdateDocumentBase(convert.GetTextDocuments());
+    inverter.UpdateDocumentBase(converter.GetTextDocuments());
 
     return 0;
 }

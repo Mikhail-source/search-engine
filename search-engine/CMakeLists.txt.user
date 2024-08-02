@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2024-07-29T15:18:32. -->
+<!-- Written by QtCreator 6.0.2, 2024-07-30T13:24:35. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -67,12 +67,7 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="AutoTest.CheckStates">
-    <value type="Qt::CheckState" key="1@/home/mikhail/develop/study/final/search-engine/inverted_index.h:TestBasic">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mikhail/develop/study/final/search-engine/inverted_index.h:TestBasic2">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mikhail/develop/study/final/search-engine/inverted_index.h:TestCaseInvertedIndex">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mikhail/develop/study/final/search-engine/inverted_index.h:TestInvertedIndexMissingWord">Checked</value>
-   </valuemap>
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey"/>

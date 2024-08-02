@@ -4,9 +4,6 @@
 #include <string>
 #include <map>
 
-#include "gtest/gtest.h"
-
-
 struct Entry {
     size_t doc_id, count;
 

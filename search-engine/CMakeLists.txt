@@ -8,9 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(
     search-engine
     main.cpp
-    #tests.cpp
-    converter_json.cpp converter_json.h
-    inverted_index.cpp inverted_index.h
+    converter_json.h converter_json.cpp
+    inverted_index.h inverted_index.cpp
+    searchserver.h searchserver.cpp
 )
 
 #nlohmann_json

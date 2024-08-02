@@ -24,6 +24,8 @@ std::vector<std::string> ConverterJSON::GetTextDocuments(){
     } else {
         throw std::runtime_error("ERROR config file is missing");
     }
+    for(auto& n : dict["config"].items())
+        std::cout << std::to_string(n.value()) << std::endl;
 
     return result;
 };
