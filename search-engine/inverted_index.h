@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include <map>
-#include <fstream>
 
 struct Entry {
     size_t doc_id, count;

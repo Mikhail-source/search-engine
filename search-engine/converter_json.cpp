@@ -1,10 +1,11 @@
 #include "converter_json.h"
 
+#include <fstream>
+#include <nlohmann/json.hpp>
 //to do: check .json struct
 
 const std::string PATH = "../";
 
-//Get list of files from config.json
 std::vector<std::string> ConverterJSON::GetTextDocuments(){
     std::vector<std::string> result;
     std::ifstream read_file;
@@ -13,12 +14,10 @@ std::vector<std::string> ConverterJSON::GetTextDocuments(){
     read_file.open(PATH + "config.json", std::ios::in);
     if(read_file.is_open()){
         read_file >> dict;
-        if(dict["config"] != nullptr){
-            for(auto& n : dict["files"]){
-                result.push_back(n);
-            }
-        } else {
+        if(dict["config"] == nullptr){
             throw std::runtime_error("ERROR config file is empty");
+        } else {
+            for(auto& n : dict["files"]) result.push_back(n);
         }
         read_file.close();
     } else {
@@ -28,7 +27,6 @@ std::vector<std::string> ConverterJSON::GetTextDocuments(){
     return result;
 };
 
-//Get max_responses from config.json
 int ConverterJSON::GetResponsesLimit(){
     int result;
     std::ifstream read_file;
@@ -51,7 +49,6 @@ int ConverterJSON::GetResponsesLimit(){
     return result;
 };
 
-//Get list of requests from requests.json
 std::vector<std::string> ConverterJSON::GetRequests(){
     std::vector<std::string> result;
     std::ifstream read_file;
@@ -72,7 +69,6 @@ std::vector<std::string> ConverterJSON::GetRequests(){
     return result;
 };
 
-//Put result in answers.json
 void ConverterJSON::putAnswers(std::vector<std::vector<std::pair<int, float>>>answers){
     std::ofstream write_file;
     nlohmann::json dict = answers;
