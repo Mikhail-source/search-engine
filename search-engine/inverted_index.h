@@ -16,7 +16,7 @@ class InvertedIndex {
 public:
     InvertedIndex() = default;
 
-    //Update document base for search
+    //Update documents content for search
     void UpdateDocumentBase(std::vector<std::string> input_docs);
 
     //number of words in base

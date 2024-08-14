@@ -7,24 +7,40 @@
 const std::string PATH = "../";
 
 std::vector<std::string> ConverterJSON::GetTextDocuments(){
-    std::vector<std::string> result;
+    std::vector<std::string> file_content;
+    std::ifstream config_file;
     std::ifstream read_file;
     nlohmann::json dict;
+    int length;
+    char* buffer;
 
-    read_file.open(PATH + "config.json", std::ios::in);
-    if(read_file.is_open()){
-        read_file >> dict;
+    config_file.open(PATH + "config.json", std::ios::in);
+    if(config_file.is_open()){
+        config_file >> dict;
         if(dict["config"] == nullptr){
             throw std::runtime_error("ERROR config file is empty");
         } else {
-            for(auto& n : dict["files"]) result.push_back(n);
+            for(auto& n : dict["files"]){
+                read_file.open(n, std::ios::in);
+                if(read_file.is_open()){
+                    read_file.seekg (0, std::ios::end);
+                    length = read_file.tellg();
+                    read_file.seekg (0, std::ios::beg);
+                    buffer = new char [length];
+                    read_file.read(buffer, length);
+                    file_content.push_back(buffer);
+                } else {
+                    throw std::runtime_error("ERROR open file: ");
+                }
+                read_file.close();
+            }
         }
-        read_file.close();
+        config_file.close();
     } else {
         throw std::runtime_error("ERROR config file is missing");
     }
 
-    return result;
+    return file_content;
 };
 
 int ConverterJSON::GetResponsesLimit(){
