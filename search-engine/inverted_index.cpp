@@ -3,8 +3,10 @@
 #include <cctype>
 #include <thread>
 
+
 void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs){
     std::string stringBuffer = "";
+    std::vector<std::thread> indexThread;
     docs = input_docs;
 
     for(size_t i = 0; i < docs.size(); i++){
@@ -12,7 +14,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs){
             if(std::isalpha(k) || k == '\''){
                 stringBuffer += std::tolower(k);
             } else {
-                if(freq_dictionary.find(stringBuffer) == freq_dictionary.end()){
+                if(freq_dictionary.find(stringBuffer) == freq_dictionary.end() & stringBuffer != ""){
                     freq_dictionary.insert(std::pair<std::string, std::vector<Entry>>(stringBuffer, GetWordCount(stringBuffer)));
                 }
                 stringBuffer = "";
